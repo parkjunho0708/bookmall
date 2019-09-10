@@ -13,6 +13,7 @@ public class CategoryDaoTest {
 	public static void main(String[] args) {
 		insertTest();// create
 		selectTest(); // read
+		//deleteTest(); // delete
 	}
 
 	public static void insertTest() {
@@ -43,5 +44,9 @@ public class CategoryDaoTest {
 		for (CategoryVo vo : list) {
 			System.out.println(vo);
 		}
+	}
+	
+	private static void deleteTest() {
+		new CategoryDao().delete();
 	}
 }

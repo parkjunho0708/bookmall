@@ -3,9 +3,7 @@ package kr.co.itcen.bookmall.dao.test;
 import java.util.List;
 
 import kr.co.itcen.bookmall.dao.CartDao;
-import kr.co.itcen.bookmall.dao.CategoryDao;
 import kr.co.itcen.bookmall.vo.CartVo;
-import kr.co.itcen.bookmall.vo.UserVo;
 
 //-----------------------------------------
 //		카트 리스트
@@ -15,6 +13,7 @@ public class CartDaoTest {
 	public static void main(String[] args) {
 		insertTest(); // create
 		selectTest(); // read
+		//deleteTest(); // delete
 	}
 
 	public static void insertTest() {
@@ -51,5 +50,9 @@ public class CartDaoTest {
 		for (CartVo vo : list) {
 			System.out.println(vo);
 		}
+	}
+	
+	private static void deleteTest() {
+		new CartDao().delete();
 	}
 }

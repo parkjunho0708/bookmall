@@ -100,6 +100,31 @@ public class CategoryDao {
 		return result;
 	}
 	
+	public void delete() {
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			connection = getConnection();
+			String sql = "delete from category";
+			pstmt = connection.prepareStatement(sql);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("error : " + e);
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	private Connection getConnection() throws SQLException {
 		Connection connection = null;
 

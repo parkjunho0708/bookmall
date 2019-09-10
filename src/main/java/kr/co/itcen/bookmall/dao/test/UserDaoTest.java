@@ -1,7 +1,6 @@
 package kr.co.itcen.bookmall.dao.test;
 
 import java.util.List;
-import java.util.Scanner;
 
 import kr.co.itcen.bookmall.dao.UserDao;
 import kr.co.itcen.bookmall.vo.UserVo;
@@ -15,7 +14,7 @@ public class UserDaoTest {
 		insertTest();// create
 		selectTest(); // read
 		updateTest(); // update
-		//deleteAllTest(); // delete
+		//deleteTest(); // delete
 	}
 
 	public static void insertTest() {
@@ -79,16 +78,8 @@ public class UserDaoTest {
 			System.out.println(vo);
 		}
 	}
-
-	private static void deleteAllTest() {
-		System.out.println("delete All test--------------------------------");
+	
+	private static void deleteTest() {
 		new UserDao().delete();
-		
-		UserDao dao = new UserDao();
-		
-		List<UserVo> list = dao.select();
-		for (UserVo vo : list) {
-			System.out.println(vo);
-		}
 	}
 }

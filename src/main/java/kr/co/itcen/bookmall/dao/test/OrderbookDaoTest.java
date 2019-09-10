@@ -13,6 +13,7 @@ public class OrderbookDaoTest {
 	public static void main(String[] args) {
 		insertTest(); // create
 		selectTest(); // read
+		//deleteTest(); // delete
 	}
 
 	public static void insertTest() {
@@ -42,5 +43,9 @@ public class OrderbookDaoTest {
 		for (OrderbookVo vo : list) {
 			System.out.println(vo);
 		}
+	}
+	
+	private static void deleteTest() {
+		new OrderbookDao().delete();
 	}
 }
