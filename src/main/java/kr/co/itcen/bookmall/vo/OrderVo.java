@@ -5,6 +5,7 @@ public class OrderVo {
 	private Long usernum;
 	private String orderaddress;
 	private int orderprice;
+	private String userid;
 
 	public Long getOrdernum() {
 		return ordernum;
@@ -38,10 +39,18 @@ public class OrderVo {
 		this.orderprice = orderprice;
 	}
 
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderVo [ordernum=" + ordernum + ", usernum=" + usernum + ", orderaddress=" + orderaddress
-				+ ", orderprice=" + orderprice + "]";
+				+ ", orderprice=" + orderprice + ", userid=" + userid + "]";
 	}
 
 }

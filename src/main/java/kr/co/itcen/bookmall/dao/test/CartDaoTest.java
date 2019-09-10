@@ -1,5 +1,7 @@
 package kr.co.itcen.bookmall.dao.test;
 
+import java.util.List;
+
 import kr.co.itcen.bookmall.dao.CartDao;
 import kr.co.itcen.bookmall.dao.CategoryDao;
 import kr.co.itcen.bookmall.vo.CartVo;
@@ -15,33 +17,37 @@ public class CartDaoTest {
 	}
 
 	public static void insertTest() {
+		String loginUser = "user1";
 		System.out.println("insert test--------------------------------");
-		CartDao dao = new CartDao();
-		UserVo userVo1 = new UserVo();
-		CartVo cartVo1 = new CartVo();
-		userVo1.setUsernum(userVo1.getUsernum());
-		
-//		vo1.setName("아이유");
-//		dao.insert(vo1);
-//		System.out.println(vo1);
-//
-//		UserVo vo2 = new UserVo();
-//		vo2.setName("BTS");
-//		dao.insert(vo2);
-//		System.out.println(vo2);
-//
-//		UserVo vo3 = new UserVo();
-//		vo3.setName("소녀시대");
-//		dao.insert(vo3);
-//		System.out.println(vo3);
+		if(loginUser.equals("user1")) {
+			System.out.println("user1 login successful");
+			System.out.println("도서구매시작----------------------------");
+			CartDao dao = new CartDao();
+			
+			CartVo cartVo1 = new CartVo();
+			cartVo1.setUsernum(1L);
+			cartVo1.setBooknum(1L);
+			cartVo1.setUserid(loginUser);
+			cartVo1.setBooktitle("리액트를 다루는 기술");
+			dao.insert(cartVo1);
+			System.out.println(cartVo1);
+			
+			CartVo cartVo2 = new CartVo();
+			cartVo2.setUsernum(1L);
+			cartVo2.setBooknum(2L);
+			cartVo2.setUserid(loginUser);
+			cartVo2.setBooktitle("우리 나무 이름 사전");
+			dao.insert(cartVo2);
+			System.out.println(cartVo2);
+		}
 	}
 
 	private static void selectTest() {
 		System.out.println("select test--------------------------------");
-		//UserDao dao = new UserDao();
+		CartDao dao = new CartDao();
 
-		//List<UserVo> list = dao.getList();
-		for (UserVo vo : list) {
+		List<CartVo> list = dao.select();
+		for (CartVo vo : list) {
 			System.out.println(vo);
 		}
 	}

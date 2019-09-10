@@ -1,42 +1,45 @@
 package kr.co.itcen.bookmall.dao.test;
 
+import java.util.List;
+
+import kr.co.itcen.bookmall.dao.CartDao;
+import kr.co.itcen.bookmall.dao.OrderDao;
+import kr.co.itcen.bookmall.vo.CartVo;
+import kr.co.itcen.bookmall.vo.OrderVo;
+
 public class OrderDaoTest {
 	
-//	public static void main(String[] args) {
-//		insertTest(); // create
-//		selectTest(); // read
+	public static void main(String[] args) {
+		insertTest(); // create
+		selectTest(); // read
 //		updateTest(); // update
 //		deleteAllTest(); // delete
-//	}
-//
-//	public static void insertTest() {
-//		System.out.println("insert test--------------------------------");
-//		UserDao dao = new UserDao();
-//		UserVo vo1 = new UserVo();
-//		vo1.setName("아이유");
-//		dao.insert(vo1);
-//		System.out.println(vo1);
-//
-//		UserVo vo2 = new UserVo();
-//		vo2.setName("BTS");
-//		dao.insert(vo2);
-//		System.out.println(vo2);
-//
-//		UserVo vo3 = new UserVo();
-//		vo3.setName("소녀시대");
-//		dao.insert(vo3);
-//		System.out.println(vo3);
-//	}
-//
-//	private static void selectTest() {
-//		System.out.println("select test--------------------------------");
-//		UserDao dao = new UserDao();
-//
-//		List<UserVo> list = dao.getList();
-//		for (UserVo vo : list) {
-//			System.out.println(vo);
-//		}
-//	}
+	}
+
+	public static void insertTest() {
+		System.out.println("insert test--------------------------------");
+		System.out.println("user1 order list");
+		OrderDao orderDao = new OrderDao();
+		OrderVo orderVo = new OrderVo();
+		int orderprice = 37800 + 17820; // user1이 주문한 책의 가격 합
+		
+		orderVo.setUsernum(1L);
+		orderVo.setOrderaddress("서울특별시 서초구 신반포로 176"); // 배송지 주소
+		orderVo.setOrderprice(orderprice); // user1이 주문한 책의 가격 합
+		orderVo.setUserid("user1");
+		orderDao.insert(orderVo);
+		System.out.println(orderVo);
+	}
+
+	private static void selectTest() {
+		System.out.println("select test--------------------------------");
+		OrderDao dao = new OrderDao();
+
+		List<OrderVo> list = dao.select();
+		for (OrderVo vo : list) {
+			System.out.println(vo);
+		}
+	}
 //
 //	private static void updateTest() {
 //		// TODO Auto-generated method stub

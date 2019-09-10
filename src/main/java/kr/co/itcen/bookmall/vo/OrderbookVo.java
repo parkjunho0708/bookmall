@@ -3,8 +3,8 @@ package kr.co.itcen.bookmall.vo;
 public class OrderbookVo {
 	private Long orderbooknum;
 	private Long booknum;
-	private int orderbookcount;
 	private Long ordernum;
+	private String booktitle;
 
 	public Long getOrderbooknum() {
 		return orderbooknum;
@@ -22,14 +22,6 @@ public class OrderbookVo {
 		this.booknum = booknum;
 	}
 
-	public int getOrderbookcount() {
-		return orderbookcount;
-	}
-
-	public void setOrderbookcount(int orderbookcount) {
-		this.orderbookcount = orderbookcount;
-	}
-
 	public Long getOrdernum() {
 		return ordernum;
 	}
@@ -38,10 +30,18 @@ public class OrderbookVo {
 		this.ordernum = ordernum;
 	}
 
+	public String getBooktitle() {
+		return booktitle;
+	}
+
+	public void setBooktitle(String booktitle) {
+		this.booktitle = booktitle;
+	}
+
 	@Override
 	public String toString() {
-		return "OrderbookVo [orderbooknum=" + orderbooknum + ", booknum=" + booknum + ", orderbookcount="
-				+ orderbookcount + ", ordernum=" + ordernum + "]";
+		return "OrderbookVo [orderbooknum=" + orderbooknum + ", booknum=" + booknum + ", ordernum=" + ordernum
+				+ ", booktitle=" + booktitle + "]";
 	}
 
 }

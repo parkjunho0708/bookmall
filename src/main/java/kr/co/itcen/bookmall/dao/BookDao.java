@@ -70,7 +70,7 @@ public class BookDao {
 			
 			String sql = "select book.booknum, book.booktitle, book.bookwriter, "
 					+ "book.bookcompany, book.bookrelease, "
-					+ "book.bookprice, book.bookcount, category.categoryname from book, category "
+					+ "book.bookprice, book.bookcount, category.categorynum, category.categoryname from book, category "
 					+ "where book.categorynum = category.categorynum "
 					+ "group by book.booknum "
 					+ "order by book.booknum";
@@ -87,7 +87,8 @@ public class BookDao {
 				String bookrelease = rs.getString(5);
 				int bookprice = rs.getInt(6);
 				int bookcount = rs.getInt(7);
-				String categoryname = rs.getString(8);
+				Long categorynum = rs.getLong(8);
+				String categoryname = rs.getString(9);
 				
 				BookVo vo = new BookVo();
 				vo.setBooknum(booknum);
@@ -97,6 +98,7 @@ public class BookDao {
 				vo.setBookrelease(bookrelease);
 				vo.setBookprice(bookprice);
 				vo.setBookcount(bookcount);
+				vo.setCategorynum(categorynum);
 				vo.setCategoryname(categoryname);
 
 				result.add(vo);

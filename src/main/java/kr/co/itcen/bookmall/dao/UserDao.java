@@ -69,7 +69,7 @@ public class UserDao {
 			connection = getConnection();
 
 			String sql = "select usernum, userid, userpasswd, username, userbirthday, usergender, "
-					+ "useraddress, userphonenum, useremail from user order by usernum asc";
+					+ "useraddress, userphonenum, useremail from user order by usernum";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
