@@ -34,8 +34,8 @@ public class OrderbookDao {
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery("select last_insert_id()");
 			if(rs.next()) {
-				Long ordernum = rs.getLong(1);
-				vo.setOrdernum(ordernum);
+				Long orderbooknum = rs.getLong(1);
+				vo.setOrderbooknum(orderbooknum);
 			}
 		} catch (SQLException e) {
 			System.out.println("error : " + e);
@@ -63,13 +63,17 @@ public class OrderbookDao {
 		try {
 			connection = getConnection();
 			
-			String sql = "select orderbook.orderbooknum, book.booknum, book.booktitle, bookmall.order.ordernum "
+			String sql = "select "
+					+ "orderbook.orderbooknum, "
+					+ "book.booknum, "
+					+ "book.booktitle, "
+					+ "bookmall.order.ordernum "
 					+ "from orderbook, book, bookmall.order "
 					+ "where orderbook.booknum = book.booknum "
 					+ "and orderbook.ordernum = bookmall.order.ordernum "
-					+ "and orderbook.booktitle = book.booktitle"
+					+ "and orderbook.booktitle = book.booktitle "
 					+ "group by orderbook.orderbooknum "
-					+ "order by orderbook.orderbooknum;";
+					+ "order by orderbook.orderbooknum";
 			
 			pstmt = connection.prepareStatement(sql);
 
@@ -78,8 +82,8 @@ public class OrderbookDao {
 			while(rs.next()) {
 				Long orderbooknum = rs.getLong(1);
 				Long booknum = rs.getLong(2);
-				Long ordernum = rs.getLong(3);
-				String booktitle = rs.getString(4);
+				String booktitle = rs.getString(3);
+				Long ordernum = rs.getLong(4);
 				
 				OrderbookVo vo = new OrderbookVo();
 				vo.setOrderbooknum(orderbooknum);

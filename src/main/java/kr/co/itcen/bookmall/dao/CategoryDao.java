@@ -61,7 +61,11 @@ public class CategoryDao {
 		try {
 			connection = getConnection();
 
-			String sql = "select categorynum, categoryname from category order by categorynum";
+			String sql = "select "
+					+ "categorynum, "
+					+ "categoryname "
+					+ "from category "
+					+ "order by categorynum";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -109,5 +113,4 @@ public class CategoryDao {
 
 		return connection;
 	}
-	
 }

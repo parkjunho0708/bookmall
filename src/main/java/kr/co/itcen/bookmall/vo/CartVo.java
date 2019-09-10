@@ -1,11 +1,11 @@
 package kr.co.itcen.bookmall.vo;
 
 public class CartVo {
-	private Long cartnum;
-	private Long usernum;
-	private Long booknum;
-	private String userid;
-	private String booktitle;
+	private Long cartnum; // primary key 카트번호
+	private Long usernum; // 고객번호
+	private Long booknum; // 도서번호
+	private String userid; // 고객아이디
+	private String booktitle; // 도서제목
 
 	public Long getCartnum() {
 		return cartnum;

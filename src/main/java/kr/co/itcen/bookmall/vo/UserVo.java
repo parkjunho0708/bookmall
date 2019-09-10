@@ -1,15 +1,15 @@
 package kr.co.itcen.bookmall.vo;
 
 public class UserVo {
-	private Long usernum;
-	private String userid;
-	private String userpasswd;
-	private String username;
-	private String userbirthday;
-	private String usergender;
-	private String useraddress;
-	private String userphonenum;
-	private String useremail;
+	private Long usernum; // primary key 고객번호
+	private String userid; // 고객아이디
+	private String userpasswd; // 고객비밀번호
+	private String username; // 고객이름
+	private String userbirthday; // 고객생년월일
+	private String usergender; // 고객성별
+	private String useraddress; // 고객주소
+	private String userphonenum; // 고객전화번호
+	private String useremail; // 고객이메일
 
 	public Long getUsernum() {
 		return usernum;

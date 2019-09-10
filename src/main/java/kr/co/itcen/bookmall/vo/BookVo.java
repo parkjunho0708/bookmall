@@ -1,15 +1,14 @@
 package kr.co.itcen.bookmall.vo;
 
 public class BookVo {
-	private Long booknum;
-	private String booktitle;
-	private String bookwriter;
-	private String bookcompany;
-	private String bookrelease;
-	private int bookprice;
-	private int bookcount;
-	private Long categorynum;
-	private String categoryname;
+	private Long booknum; // primary key 도서번호
+	private String booktitle; // 도서제목
+	private String bookwriter; // 도서저자
+	private String bookcompany; // 도서출판사
+	private String bookrelease; // 도서출판일
+	private int bookprice; // 도서가격
+	private Long categorynum; // 범주번호
+	private String categoryname; // 범주이름
 
 	public Long getBooknum() {
 		return booknum;
@@ -59,14 +58,6 @@ public class BookVo {
 		this.bookprice = bookprice;
 	}
 
-	public int getBookcount() {
-		return bookcount;
-	}
-
-	public void setBookcount(int bookcount) {
-		this.bookcount = bookcount;
-	}
-
 	public Long getCategorynum() {
 		return categorynum;
 	}
@@ -87,7 +78,7 @@ public class BookVo {
 	public String toString() {
 		return "BookVo [booknum=" + booknum + ", booktitle=" + booktitle + ", bookwriter=" + bookwriter
 				+ ", bookcompany=" + bookcompany + ", bookrelease=" + bookrelease + ", bookprice=" + bookprice
-				+ ", bookcount=" + bookcount + ", categorynum=" + categorynum + ", categoryname=" + categoryname + "]";
+				+ ", categorynum=" + categorynum + ", categoryname=" + categoryname + "]";
 	}
 
 }

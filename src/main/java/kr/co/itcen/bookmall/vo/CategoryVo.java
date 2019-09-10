@@ -1,8 +1,8 @@
 package kr.co.itcen.bookmall.vo;
 
 public class CategoryVo {
-	private Long categorynum;
-	private String categoryname;
+	private Long categorynum; // 범주번호
+	private String categoryname; // 범주이름
 
 	public Long getCategorynum() {
 		return categorynum;

@@ -6,6 +6,9 @@ import java.util.Scanner;
 import kr.co.itcen.bookmall.dao.UserDao;
 import kr.co.itcen.bookmall.vo.UserVo;
 
+//-----------------------------------------
+//		회원 리스트
+//-----------------------------------------
 public class UserDaoTest {
 
 	public static void main(String[] args) {
@@ -16,7 +19,7 @@ public class UserDaoTest {
 	}
 
 	public static void insertTest() {
-		System.out.println("insert test--------------------------------");
+		System.out.println("[회원 리스트] insert test--------------------------------");
 		UserDao dao = new UserDao();
 		UserVo vo1 = new UserVo();
 
@@ -46,7 +49,7 @@ public class UserDaoTest {
 	}
 
 	private static void selectTest() {
-		System.out.println("select test--------------------------------");
+		System.out.println("[회원 리스트] select test--------------------------------");
 		UserDao dao = new UserDao();
 
 		List<UserVo> list = dao.select();
@@ -56,7 +59,7 @@ public class UserDaoTest {
 	}
 
 	private static void updateTest() {
-		System.out.println("update test--------------------------------");
+		System.out.println("[회원 리스트] update test--------------------------------");
 		UserDao dao = new UserDao();
 		
 		UserVo vo1 = new UserVo();

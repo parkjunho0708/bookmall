@@ -5,6 +5,9 @@ import java.util.List;
 import kr.co.itcen.bookmall.dao.CategoryDao;
 import kr.co.itcen.bookmall.vo.CategoryVo;
 
+//-----------------------------------------
+//		카테고리 리스트
+//-----------------------------------------
 public class CategoryDaoTest {
 	
 	public static void main(String[] args) {
@@ -13,7 +16,7 @@ public class CategoryDaoTest {
 	}
 
 	public static void insertTest() {
-		System.out.println("insert test--------------------------------");
+		System.out.println("[카테고리 리스트] insert test--------------------------------");
 		CategoryDao dao = new CategoryDao();
 		
 		CategoryVo vo1 = new CategoryVo();
@@ -33,7 +36,7 @@ public class CategoryDaoTest {
 	}
 
 	private static void selectTest() {
-		System.out.println("select test--------------------------------");
+		System.out.println("[카테고리 리스트] select test--------------------------------");
 		CategoryDao dao = new CategoryDao();
 
 		List<CategoryVo> list = dao.select();

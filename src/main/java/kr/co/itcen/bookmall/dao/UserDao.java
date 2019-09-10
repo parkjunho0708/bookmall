@@ -68,8 +68,19 @@ public class UserDao {
 		try {
 			connection = getConnection();
 
-			String sql = "select usernum, userid, userpasswd, username, userbirthday, usergender, "
-					+ "useraddress, userphonenum, useremail from user order by usernum";
+			String sql = "select "
+					+ "usernum, "
+					+ "userid, "
+					+ "userpasswd, "
+					+ "username, "
+					+ "userbirthday, "
+					+ "usergender, "
+					+ "useraddress, "
+					+ "userphonenum, "
+					+ "useremail "
+					+ "from user "
+					+ "order by usernum";
+			
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -151,32 +162,6 @@ public class UserDao {
 		return result;
 	}
 
-
-	public void delete() {
-		Connection connection = null;
-		PreparedStatement pstmt = null;
-
-		try {
-			connection = getConnection();
-			String sql = "delete from user";
-			pstmt = connection.prepareStatement(sql);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println("error : " + e);
-		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
 	private Connection getConnection() throws SQLException {
 		Connection connection = null;
 
@@ -190,5 +175,4 @@ public class UserDao {
 
 		return connection;
 	}
-
 }

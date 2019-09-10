@@ -65,7 +65,12 @@ public class OrderDao {
 		try {
 			connection = getConnection();
 			
-			String sql = "select bookmall.order.ordernum, user.usernum, bookmall.order.orderaddress, bookmall.order.orderprice, user.userid "
+			String sql = "select "
+					+ "bookmall.order.ordernum, "
+					+ "user.usernum, "
+					+ "bookmall.order.orderaddress, "
+					+ "bookmall.order.orderprice, "
+					+ "user.userid "
 					+ "from bookmall.order, user "
 					+ "where user.usernum = bookmall.order.usernum "
 					+ "and user.userid = bookmall.order.userid "
@@ -125,5 +130,4 @@ public class OrderDao {
 
 		return connection;
 	}
-	
 }

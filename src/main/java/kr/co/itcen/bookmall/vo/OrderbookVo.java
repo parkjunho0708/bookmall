@@ -1,10 +1,10 @@
 package kr.co.itcen.bookmall.vo;
 
 public class OrderbookVo {
-	private Long orderbooknum;
-	private Long booknum;
-	private Long ordernum;
-	private String booktitle;
+	private Long orderbooknum; // 주문도서번호
+	private Long booknum; // 도서번호
+	private Long ordernum; // 주문번호
+	private String booktitle; // 도서제목
 
 	public Long getOrderbooknum() {
 		return orderbooknum;

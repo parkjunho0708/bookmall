@@ -7,18 +7,19 @@ import kr.co.itcen.bookmall.dao.CategoryDao;
 import kr.co.itcen.bookmall.vo.CartVo;
 import kr.co.itcen.bookmall.vo.UserVo;
 
+//-----------------------------------------
+//		카트 리스트
+//-----------------------------------------
 public class CartDaoTest {
 	
 	public static void main(String[] args) {
 		insertTest(); // create
 		selectTest(); // read
-		//updateTest(); // update
-		//deleteAllTest(); // delete
 	}
 
 	public static void insertTest() {
 		String loginUser = "user1";
-		System.out.println("insert test--------------------------------");
+		System.out.println("[카트 리스트] insert test--------------------------------");
 		if(loginUser.equals("user1")) {
 			System.out.println("user1 login successful");
 			System.out.println("도서구매시작----------------------------");
@@ -43,21 +44,12 @@ public class CartDaoTest {
 	}
 
 	private static void selectTest() {
-		System.out.println("select test--------------------------------");
+		System.out.println("[카트 리스트] select test--------------------------------");
 		CartDao dao = new CartDao();
 
 		List<CartVo> list = dao.select();
 		for (CartVo vo : list) {
 			System.out.println(vo);
 		}
-	}
-
-	private static void updateTest() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteAllTest() {
-		//new UserDao().delete();
 	}
 }

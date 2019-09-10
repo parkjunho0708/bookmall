@@ -2,23 +2,22 @@ package kr.co.itcen.bookmall.dao.test;
 
 import java.util.List;
 
-import kr.co.itcen.bookmall.dao.CartDao;
 import kr.co.itcen.bookmall.dao.OrderDao;
-import kr.co.itcen.bookmall.vo.CartVo;
 import kr.co.itcen.bookmall.vo.OrderVo;
 
+//-----------------------------------------
+//		주문 리스트
+//-----------------------------------------
 public class OrderDaoTest {
 	
 	public static void main(String[] args) {
 		insertTest(); // create
 		selectTest(); // read
-//		updateTest(); // update
-//		deleteAllTest(); // delete
 	}
 
 	public static void insertTest() {
-		System.out.println("insert test--------------------------------");
-		System.out.println("user1 order list");
+		System.out.println("[주문 리스트] insert test--------------------------------");
+		System.out.println("***************** user1 order list *****************");
 		OrderDao orderDao = new OrderDao();
 		OrderVo orderVo = new OrderVo();
 		int orderprice = 37800 + 17820; // user1이 주문한 책의 가격 합
@@ -32,7 +31,7 @@ public class OrderDaoTest {
 	}
 
 	private static void selectTest() {
-		System.out.println("select test--------------------------------");
+		System.out.println("[주문 리스트] select test--------------------------------");
 		OrderDao dao = new OrderDao();
 
 		List<OrderVo> list = dao.select();
@@ -40,13 +39,4 @@ public class OrderDaoTest {
 			System.out.println(vo);
 		}
 	}
-//
-//	private static void updateTest() {
-//		// TODO Auto-generated method stub
-//
-//	}
-//
-//	private static void deleteAllTest() {
-//		new UserDao().delete();
-//	}
 }

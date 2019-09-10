@@ -1,11 +1,11 @@
 package kr.co.itcen.bookmall.vo;
 
 public class OrderVo {
-	private Long ordernum;
-	private Long usernum;
-	private String orderaddress;
-	private int orderprice;
-	private String userid;
+	private Long ordernum; // primary key 주문번호
+	private Long usernum; // 고객번호
+	private String orderaddress; // 배송지주소
+	private int orderprice; // 결제금액
+	private String userid; // 고객아이디
 
 	public Long getOrdernum() {
 		return ordernum;

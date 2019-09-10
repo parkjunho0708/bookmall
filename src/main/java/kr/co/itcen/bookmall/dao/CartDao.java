@@ -64,7 +64,12 @@ public class CartDao {
 		try {
 			connection = getConnection();
 			
-			String sql = "select cart.cartnum, user.usernum, user.userid, book.booknum, book.booktitle "
+			String sql = "select "
+					+ "cart.cartnum, "
+					+ "user.usernum, "
+					+ "user.userid, "
+					+ "book.booknum, "
+					+ "book.booktitle "
 					+ "from cart, user, book "
 					+ "where user.usernum = cart.usernum "
 					+ "and user.userid = cart.userid "
@@ -79,15 +84,15 @@ public class CartDao {
 
 			while(rs.next()) {
 				Long cartnum = rs.getLong(1);
-				String cartbookname = rs.getString(2);
-				Long usernum = rs.getLong(3);
+				Long usernum = rs.getLong(2);
+				String userid = rs.getString(3);
 				Long booknum = rs.getLong(4);
-				String userid = rs.getString(5);
 				String booktitle = rs.getString(5);
 				
 				CartVo vo = new CartVo();
 				vo.setCartnum(cartnum);
 				vo.setUsernum(usernum);
+				vo.setUserid(userid);
 				vo.setBooknum(booknum);
 				vo.setBooktitle(booktitle);
 
@@ -126,6 +131,4 @@ public class CartDao {
 
 		return connection;
 	}
-
-	
 }
