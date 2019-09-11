@@ -30,7 +30,6 @@ public class BookDao {
 			pstmt.setString(4, vo.getBookrelease());
 			pstmt.setInt(5, vo.getBookprice());
 			pstmt.setLong(6,  vo.getCategorynum());
-			//pstmt.setString(7, vo.getCategoryname());
 			
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
@@ -90,7 +89,6 @@ public class BookDao {
 				String bookcompany = rs.getString(4);
 				String bookrelease = rs.getString(5);
 				int bookprice = rs.getInt(6);
-				//Long categorynum = rs.getLong(7);
 				String categoryname = rs.getString(7);
 				
 				BookVo vo = new BookVo();
