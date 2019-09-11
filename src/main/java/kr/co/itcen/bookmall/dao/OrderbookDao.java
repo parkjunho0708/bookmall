@@ -72,7 +72,6 @@ public class OrderbookDao {
 					+ "where orderbook.booknum = book.booknum "
 					+ "and orderbook.ordernum = bookmall.order.ordernum "
 					+ "and orderbook.booktitle = book.booktitle "
-					+ "group by orderbook.orderbooknum "
 					+ "order by orderbook.orderbooknum";
 			
 			pstmt = connection.prepareStatement(sql);

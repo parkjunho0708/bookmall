@@ -27,7 +27,6 @@ public class BookDaoTest {
 		vo1.setBookrelease("2019년 08월 31일");
 		vo1.setBookprice(37800);
 		vo1.setCategorynum(1L);
-		vo1.setCategoryname("프로그래밍");
 		dao.insert(vo1);
 		System.out.println(vo1);
 		
@@ -38,7 +37,6 @@ public class BookDaoTest {
 		vo2.setBookrelease("2019년 08월 26일");
 		vo2.setBookprice(17820);
 		vo2.setCategorynum(2L);
-		vo2.setCategoryname("자연과학");
 		dao.insert(vo2);
 		System.out.println(vo2);
 		
@@ -49,7 +47,6 @@ public class BookDaoTest {
 		vo3.setBookrelease("2019년 06월 14일");
 		vo3.setBookprice(13500);
 		vo3.setCategorynum(3L);
-		vo3.setCategoryname("역사");
 		dao.insert(vo3);
 		System.out.println(vo3);
 	}

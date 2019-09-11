@@ -75,7 +75,6 @@ public class CartDao {
 					+ "and user.userid = cart.userid "
 					+ "and book.booknum = cart.booknum "
 					+ "and book.booktitle = cart.booktitle "
-					+ "group by cart.cartnum "
 					+ "order by cart.cartnum";
 			
 			pstmt = connection.prepareStatement(sql);

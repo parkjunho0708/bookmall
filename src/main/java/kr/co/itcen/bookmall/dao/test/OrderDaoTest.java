@@ -21,11 +21,11 @@ public class OrderDaoTest {
 		System.out.println("***************** user1 order list *****************");
 		OrderDao orderDao = new OrderDao();
 		OrderVo orderVo = new OrderVo();
-		int orderprice = 37800 + 17820; // user1이 주문한 책의 가격 합
+		int orderprice = 37800 + 17820;
 		
 		orderVo.setUsernum(1L);
-		orderVo.setOrderaddress("서울특별시 서초구 신반포로 176"); // 배송지 주소
-		orderVo.setOrderprice(orderprice); // user1이 주문한 책의 가격 합
+		orderVo.setOrderaddress("서울특별시 서초구 신반포로 176");
+		orderVo.setOrderprice(orderprice);
 		orderVo.setUserid("user1");
 		orderDao.insert(orderVo);
 		System.out.println(orderVo);

@@ -13,7 +13,7 @@ import kr.co.itcen.bookmall.vo.BookVo;
 
 public class BookDao {
 
-	public boolean insert(BookVo vo) { // vo는 값을 담는 역할을 하는 것
+	public boolean insert(BookVo vo) {
 		Boolean result = false;
 		Connection connection = null;
 		Statement stmt = null;
@@ -22,7 +22,7 @@ public class BookDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into book values (null, ?, ?, ?, ?, ?, ?, ?)"; // jdbc는 ;(세미콜론)이 있으면 쿼리가 또 있다고 인식
+			String sql = "insert into book values (null, ?, ?, ?, ?, ?, ?)";
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, vo.getBooktitle());
 			pstmt.setString(2, vo.getBookwriter());
@@ -30,7 +30,7 @@ public class BookDao {
 			pstmt.setString(4, vo.getBookrelease());
 			pstmt.setInt(5, vo.getBookprice());
 			pstmt.setLong(6,  vo.getCategorynum());
-			pstmt.setString(7, vo.getCategoryname());
+			//pstmt.setString(7, vo.getCategoryname());
 			
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
@@ -74,11 +74,9 @@ public class BookDao {
 					+ "book.bookcompany, "
 					+ "book.bookrelease, "
 					+ "book.bookprice, "
-					+ "category.categorynum, "
 					+ "category.categoryname "
 					+ "from book, category "
 					+ "where book.categorynum = category.categorynum "
-					+ "group by book.booknum "
 					+ "order by book.booknum";
 			
 			pstmt = connection.prepareStatement(sql);
@@ -92,8 +90,8 @@ public class BookDao {
 				String bookcompany = rs.getString(4);
 				String bookrelease = rs.getString(5);
 				int bookprice = rs.getInt(6);
-				Long categorynum = rs.getLong(7);
-				String categoryname = rs.getString(8);
+				//Long categorynum = rs.getLong(7);
+				String categoryname = rs.getString(7);
 				
 				BookVo vo = new BookVo();
 				vo.setBooknum(booknum);
@@ -102,13 +100,14 @@ public class BookDao {
 				vo.setBookcompany(bookcompany);
 				vo.setBookrelease(bookrelease);
 				vo.setBookprice(bookprice);
-				vo.setCategorynum(categorynum);
+				//vo.setCategorynum(categorynum);
 				vo.setCategoryname(categoryname);
 
 				result.add(vo);
 			}
 		} catch (SQLException e) {
 			System.out.println("error : " + e);
+			e.printStackTrace();
 		} finally {
 			try {
 				if(rs != null) {

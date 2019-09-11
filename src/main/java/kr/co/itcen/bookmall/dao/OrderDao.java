@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.itcen.bookmall.vo.CartVo;
 import kr.co.itcen.bookmall.vo.OrderVo;
 
 public class OrderDao {
@@ -74,7 +73,6 @@ public class OrderDao {
 					+ "from bookmall.order, user "
 					+ "where user.usernum = bookmall.order.usernum "
 					+ "and user.userid = bookmall.order.userid "
-					+ "group by bookmall.order.ordernum "
 					+ "order by bookmall.order.ordernum";
 			
 			pstmt = connection.prepareStatement(sql);

@@ -13,7 +13,7 @@ import kr.co.itcen.bookmall.vo.UserVo;
 
 public class UserDao {
 
-	public boolean insert(UserVo vo) { // vo는 값을 담는 역할을 하는 것
+	public boolean insert(UserVo vo) {
 		Boolean result = false;
 		Connection connection = null;
 		Statement stmt = null;
@@ -22,7 +22,7 @@ public class UserDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into user values (null, ?, ?, ?, ?, ?, ?, ?, ?)"; // jdbc는 ;(세미콜론)이 있으면 쿼리가 또 있다고 인식
+			String sql = "insert into user values (null, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, vo.getUserid());
 			pstmt.setString(2, vo.getUserpasswd());
@@ -96,7 +96,6 @@ public class UserDao {
 				String userphonenum = rs.getString(8);
 				String useremail = rs.getString(9);
 				
-				
 				UserVo vo = new UserVo();
 				vo.setUsernum(usernum);
 				vo.setUserid(userid);
@@ -130,14 +129,14 @@ public class UserDao {
 		return result;
 	}
 
-	public boolean update(UserVo vo) { // vo는 값을 담는 역할을 하는 것
+	public boolean update(UserVo vo) {
 		Boolean result = false;
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		try {
 			connection = getConnection();
 
-			String sql = "update user set username = ?, userbirthday = ? where userid = ?"; // jdbc는 ;(세미콜론)이 있으면 쿼리가 또 있다고 인식
+			String sql = "update user set username = ?, userbirthday = ? where userid = ?";
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, vo.getUsername());
 			pstmt.setString(2, vo.getUserbirthday());

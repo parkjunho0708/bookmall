@@ -13,7 +13,7 @@ import kr.co.itcen.bookmall.vo.CategoryVo;
 
 public class CategoryDao {
 	
-	public boolean insert(CategoryVo vo) { // vo는 값을 담는 역할을 하는 것
+	public boolean insert(CategoryVo vo) {
 		Boolean result = false;
 		Connection connection = null;
 		Statement stmt = null;
@@ -22,7 +22,7 @@ public class CategoryDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into category values (null, ?)"; // jdbc는 ;(세미콜론)이 있으면 쿼리가 또 있다고 인식
+			String sql = "insert into category values (null, ?)";
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, vo.getCategoryname());
 			
