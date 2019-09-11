@@ -18,7 +18,7 @@ public class OrderDaoTest {
 
 	public static void insertTest() {
 		System.out.println("[주문 리스트] insert test--------------------------------");
-		System.out.println("***************** user1 order list *****************");
+		System.out.println("****************** user1 order list ******************");
 		OrderDao orderDao = new OrderDao();
 		OrderVo orderVo = new OrderVo();
 		int orderprice = 37800 + 17820;
