@@ -10,8 +10,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.itcen.bookmall.vo.OrderVo;
+import kr.co.itcen.bookmall.vo.UserVo;
 
 public class OrderDao {
+	
+	public int sumOrderprice(int usernum, String userid) {
+		OrderVo orderVo = null;
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			connection = getConnection();
+			
+			String sql = "select sum(book.bookprice) "
+					+ "from cart, user, book "
+					+ "where user.usernum = cart.usernum "
+					+ "and user.userid = cart.userid "
+					+ "and book.booktitle = cart.booktitle "
+					+ "and user.usernum = ? "
+					+ "and user.userid = ? "
+					+ "group by user.usernum";
+			
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setLong(1, usernum);
+			pstmt.setString(2, userid);
+			
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				int orderprice = rs.getInt(1);
+				
+				orderVo = new OrderVo();
+				orderVo.setOrderprice(orderprice);
+			}
+		} catch (SQLException e) {
+			System.out.println("error : " + e);
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return orderVo.getOrderprice();
+	}
 	
 	public boolean insert(OrderVo vo) {
 		Boolean result = false;

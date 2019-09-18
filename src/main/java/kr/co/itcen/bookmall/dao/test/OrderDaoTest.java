@@ -21,7 +21,8 @@ public class OrderDaoTest {
 		System.out.println("****************** user1 order list ******************");
 		OrderDao orderDao = new OrderDao();
 		OrderVo orderVo = new OrderVo();
-		int orderprice = 37800 + 17820;
+		
+		int orderprice = orderDao.sumOrderprice(1, "user1");
 		
 		orderVo.setUsernum(1L);
 		orderVo.setOrderaddress("서울특별시 서초구 신반포로 176");
